@@ -1,4 +1,4 @@
-import { generateENXA, generateENXB, generateENXC } from '../index';
+import { generateENXA, generateENXB, generateENXC, generateENXD } from '../index';
 import IntlMessageFormat from 'intl-messageformat';
 
 const input = 'my name is {name}';
@@ -13,5 +13,9 @@ test('en-XB', () => {
 });
 
 test('en-XC', () => {
-  expect(new IntlMessageFormat(generateENXC(input)).format({ name })).toBe('မြ···ṁẏ ńâṁè íś Minh···မြ');
+  expect(new IntlMessageFormat(generateENXC(input)).format({ name })).toBe('မြ······ṁẏ ńâṁè íś Minh······မြ');
+});
+
+test('en-XD', () => {
+  expect(new IntlMessageFormat(generateENXD(input)).format({ name })).toBe('မြ······mẏ nâmè ís Minh······မြ');
 });
