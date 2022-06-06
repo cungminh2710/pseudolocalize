@@ -15,9 +15,9 @@ Read more on my [Canva Engineering blog about how to localize at scale](https://
 
 ## Available pseudo-locales
 
-- `en-XA` are ported from @formatjs/cli to test with accents technique.
-- `en-XB` are ported from @formatjs/cli to test with encapsulation technique.
-- `en-XC` is a implementation using all three techniques: accents, encapsulation and expansion.
+- `en-XA` is ported from @formatjs/cli to test with accents technique.
+- `en-XB` is ported from @formatjs/cli to test with encapsulation technique.
+- `en-XC` is implemented using all three techniques: accents, encapsulation and expansion.
 - `en-XD` is similar to `en-XC` and friendlier to dyslexic engineers.
 
 Given the English message `my name is {name}`
@@ -26,8 +26,8 @@ Given the English message `my name is {name}`
 | ------- | -------------------------------------------- |
 | `en-XA` | `ṁẏ ńâṁè íś {name}`                          |
 | `en-XB` | `[!! ṁẏ ńâṁṁṁè íííś  !!]Minh`                |
-| `en-XC` | `မြ···ṁẏ ńâṁè íś Minh···မြ`                   |
-| `en-XD` | `မြ···mẏ nâmè ís Minh···မြ`                   |
+| `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ`             |
+| `en-XD` | `မြ······mẏ nâmè ís Minh······မြ`             |
 
 * As of 1 June 2022, `code` component in this table above will fail for this tall burmese character `မြ`
 
@@ -64,7 +64,7 @@ function loadLocaleData(locale: string) {
 }
 
 function App(props) {
-  const messages = React.useMemo(() => {
+	const messages = React.useMemo(() => {
 		if (!props.messages) return {};
 		if (process.env.NODE_ENV === 'development') {
 			let m: Record<string, MessageFormatElement[]> = {};
@@ -77,15 +77,15 @@ function App(props) {
 		return props.messages;
 	}, [props.messages]);
 
-  return (
-    <IntlProvider
-      locale={props.locale}
-      defaultLocale="en"
-      messages={messages}
-    >
-      <MainApp />
-    </IntlProvider>
-  )
+	return (
+		<IntlProvider
+		  locale={props.locale}
+		  defaultLocale="en"
+		  messages={messages}
+		>
+		  <MainApp />
+		</IntlProvider>
+	)
 }
 
 async function bootstrapApplication(locale, mainDiv) {
