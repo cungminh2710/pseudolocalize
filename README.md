@@ -53,8 +53,9 @@ console.log(new IntlMessageFormat(generateENXA(input)).format({name})); // แนแบ
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { IntlProvider } from 'react-intl';
+import { createIntl, createIntlCache, IntlProvider, MessageFormatElement, RawIntlProvider } from 'react-intl';
 import { generateENXC } from '@cungminh2710/pseudolocalize';
+import IntlMessageFormat from 'intl-messageformat';
 
 function loadLocaleData(locale: string) {
   switch (locale) {
@@ -65,28 +66,35 @@ function loadLocaleData(locale: string) {
   }
 }
 
-function App(props) {
-	const messages = React.useMemo(() => {
-		if (!props.messages) return {};
-		if (process.env.NODE_ENV === 'development') {
-			let m: Record<string, MessageFormatElement[]> = {};
-			Object.keys(props.messages).forEach((key) => {
-				m[String(key)] = generateENXC(props.messages[String(key)]);
-			});
-			return m;
-		}
+// This is optional but highly recommended
+// since it prevents memory leak
+const cache = createIntlCache();
 
-		return props.messages;
-	}, [props.messages]);
+function App(props) {
+	const intl = createIntl(
+		{
+			locale,
+			messages,
+		},
+		cache
+	);
+
+        if (process.env.NODE_ENV === 'development') {
+		intl.formatMessage = (descriptor, values, opts) => {
+			if (!descriptor.defaultMessage) return '';
+			const message = new IntlMessageFormat(generateENXC(descriptor.defaultMessage), locale, undefined, opts).format(
+				values
+			);
+			if (typeof message === 'string') return message;
+			else return '';
+		};
+	}
+
 
 	return (
-		<IntlProvider
-		  locale={props.locale}
-		  defaultLocale="en"
-		  messages={messages}
-		>
+		<RawIntlProvider value={intl}>
 		  <MainApp />
-		</IntlProvider>
+		</RawIntlProvider>
 	)
 }
 
