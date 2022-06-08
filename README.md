@@ -1,5 +1,7 @@
 # Pseudolocalize
 
+https://img.shields.io/npm/dw/@cungminh2710/pseudolocalize
+
 Pseudolocalization is the process of using mock translations to aid in the testing of UI adaption and responsiveness to localized text.
 
 This package contains several implementations of pseudolocalizing ICU strings. Some implementations are ported from @formatjs/cli
