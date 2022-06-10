@@ -1,6 +1,6 @@
 # Pseudolocalize
 
-![NPM](https://img.shields.io/npm/dw/@cungminh2710/pseudolocalize)
+![NPM](https://img.shields.io/npm/dw/@cungminh2710/pseudolocalize) [![Node.js CI](https://github.com/cungminh2710/pseudolocalize/actions/workflows/node.js.yml/badge.svg)](https://github.com/cungminh2710/pseudolocalize/actions/workflows/node.js.yml)
 
 Pseudolocalization is the process of using mock translations to aid in the testing of UI adaption and responsiveness to localized text.
 
