@@ -1,15 +1,23 @@
 import {
   parse,
-  MessageFormatElement,
+  type MessageFormatElement,
   isLiteralElement,
   isPluralElement,
   isSelectElement,
   isTagElement,
   TYPE,
-  LiteralElement,
+  type LiteralElement,
 } from '@formatjs/icu-messageformat-parser';
+import IntlMessageFormat from 'intl-messageformat';
+import { createIntl, createIntlCache, type IntlCache } from 'react-intl';
 
 export type PseudoLocale = 'en-XA' | 'en-XB';
+export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[];
+export type MessageIds = FormatjsIntl.Message extends {
+  ids: string;
+}
+  ? FormatjsIntl.Message['ids']
+  : string;
 
 const ASCII = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const ACCENTED_ASCII = 'âḃćḋèḟĝḫíĵǩĺṁńŏṗɋŕśṭůṿẘẋẏẓḀḂḈḊḔḞḠḢḬĴḴĻḾŊÕṔɊŔṠṮŨṼẄẌŸƵ';
@@ -160,3 +168,29 @@ export function generateENXD(msg: string | MessageFormatElement[]): MessageForma
 
   return [padding('left', additionalLength / 2), ...ast, padding('right', additionalLength / 2)];
 }
+
+export const pseudoIntl = (
+  pseudoFunc: PseudoFunc,
+  messages: Record<MessageIds, string> | Record<MessageIds, MessageFormatElement[]>,
+  locale: string,
+  cache: IntlCache = createIntlCache(),
+) => {
+  const intl = createIntl(
+    {
+      locale,
+      messages,
+    },
+    cache,
+  );
+
+  intl.formatMessage = (descriptor, values, opts) => {
+    if (!descriptor.defaultMessage) return '';
+    const message = new IntlMessageFormat(pseudoFunc(descriptor.defaultMessage), locale, undefined, opts)
+      // @ts-ignore
+      .format(values);
+    if (typeof message === 'string') return message;
+    else return '';
+  };
+
+  return intl;
+};
