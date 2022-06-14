@@ -1,15 +1,15 @@
 import {
   parse,
-  MessageFormatElement,
+  type MessageFormatElement,
   isLiteralElement,
   isPluralElement,
   isSelectElement,
   isTagElement,
   TYPE,
-  LiteralElement,
+  type LiteralElement,
 } from '@formatjs/icu-messageformat-parser';
 import IntlMessageFormat from 'intl-messageformat';
-import { createIntl, createIntlCache } from 'react-intl';
+import { createIntl, createIntlCache, type IntlCache } from 'react-intl';
 
 export type PseudoLocale = 'en-XA' | 'en-XB';
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[];
@@ -173,11 +173,8 @@ export const pseudoIntl = (
   pseudoFunc: PseudoFunc,
   messages: Record<MessageIds, string> | Record<MessageIds, MessageFormatElement[]>,
   locale: string,
+  cache: IntlCache = createIntlCache(),
 ) => {
-  // This is optional but highly recommended
-  // since it prevents memory leak
-  const cache = createIntlCache();
-
   const intl = createIntl(
     {
       locale,
