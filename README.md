@@ -31,7 +31,10 @@ Given the English message `my name is {name}`
 | `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ`             |
 | `en-XD` | `မြ······mẏ nâmè ís Minh······မြ`             |
 
-* As of 1 June 2022, `code` component in this table above will fail for this tall burmese character `မြ`
+* As of 1 June 2022, on NPM, `code` component in this table above will fail for this tall burmese character `မြ`
+
+![image](https://user-images.githubusercontent.com/8063319/173707554-2b65f143-4d78-420e-a908-f5d4fc294e12.png)
+
 
 ## How to use
 
@@ -49,58 +52,4 @@ console.log(new IntlMessageFormat(generateENXA(input)).format({name})); // ṁ�
 
 - With `react-intl`:
 
-```javascript
-
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { createIntl, createIntlCache, IntlProvider, MessageFormatElement, RawIntlProvider } from 'react-intl';
-import { generateENXC } from '@cungminh2710/pseudolocalize';
-import IntlMessageFormat from 'intl-messageformat';
-
-function loadLocaleData(locale: string) {
-  switch (locale) {
-    case 'fr':
-      return import('compiled-lang/fr.json')
-    default:
-      return import('compiled-lang/en.json')
-  }
-}
-
-// This is optional but highly recommended
-// since it prevents memory leak
-const cache = createIntlCache();
-
-function App(props) {
-	const intl = createIntl(
-		{
-			locale,
-			messages,
-		},
-		cache
-	);
-
-        if (process.env.NODE_ENV === 'development') {
-		intl.formatMessage = (descriptor, values, opts) => {
-			if (!descriptor.defaultMessage) return '';
-			const message = new IntlMessageFormat(generateENXC(descriptor.defaultMessage), locale, undefined, opts).format(
-				values
-			);
-			if (typeof message === 'string') return message;
-			else return '';
-		};
-	}
-
-
-	return (
-		<RawIntlProvider value={intl}>
-		  <MainApp />
-		</RawIntlProvider>
-	)
-}
-
-async function bootstrapApplication(locale, mainDiv) {
-  const messages = await loadLocaleData(locale)
-  ReactDOM.render(<App locale={locale} messages={messages} />, mainDiv)
-}
-
-```
+See out [with-react-intl](https://github.com/cungminh2710/pseudolocalize/tree/main/examples/with-react-intl) example
