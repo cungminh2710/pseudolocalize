@@ -41,13 +41,13 @@ Given the English message `my name is {name}`
 - Simple:
 
 ```javascript
-import { generateENXA } from '@cungminh2710/pseudolocalize';
+import { generateENXA, prettify } from '@cungminh2710/pseudolocalize';
 import IntlMessageFormat from 'intl-messageformat';
 
 const input = 'my name is {name}';
 const name = 'Minh';
 
-console.log(new IntlMessageFormat(generateENXA(input)).format({name})); // ṁẏ ńâṁè íś {name}
+console.log(prettify(generateENXA(input))); // ṁẏ ńâṁè íś {name}
 ```
 
 - With `react-intl`:
