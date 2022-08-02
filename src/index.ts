@@ -8,6 +8,7 @@ import {
   TYPE,
   type LiteralElement,
 } from '@formatjs/icu-messageformat-parser';
+import {printAST} from '@formatjs/icu-messageformat-parser/printer'
 import IntlMessageFormat from 'intl-messageformat';
 import { createIntl, createIntlCache, type IntlCache } from 'react-intl';
 
@@ -194,3 +195,5 @@ export const pseudoIntl = (
 
   return intl;
 };
+
+export const prettify = printAST;
