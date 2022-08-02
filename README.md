@@ -45,7 +45,6 @@ import { generateENXA, prettify } from '@cungminh2710/pseudolocalize';
 import IntlMessageFormat from 'intl-messageformat';
 
 const input = 'my name is {name}';
-const name = 'Minh';
 
 console.log(prettify(generateENXA(input))); // ṁẏ ńâṁè íś {name}
 ```
