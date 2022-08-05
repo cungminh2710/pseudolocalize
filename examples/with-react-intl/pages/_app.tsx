@@ -1,24 +1,56 @@
-import messages from '../compiled-lang/en.json';
 import '../styles/globals.css';
 import { generateENXD, pseudoIntl } from '@cungminh2710/pseudolocalize';
 import type { AppProps } from 'next/app';
-import { IntlProvider, RawIntlProvider } from 'react-intl';
+import { useEffect, useState } from 'react';
+import {
+	type IntlCache,
+	IntlProvider,
+	type IntlShape,
+	type MessageFormatElement,
+	RawIntlProvider,
+	createIntl,
+	createIntlCache,
+} from 'react-intl';
+
+function loadLocaleData(locale: string) {
+	switch (locale) {
+		// case 'other-locale':
+		default:
+			return import('../compiled-lang/en.json').then((mod) => mod.default);
+	}
+}
+
+const cache: IntlCache = createIntlCache();
 
 function MyApp({ Component, pageProps }: AppProps) {
-	if (process.env.NODE_ENV === 'development') {
-		const intl = pseudoIntl(generateENXD, messages, 'en');
-		return (
-			<RawIntlProvider value={intl}>
-				<Component {...pageProps} />
-			</RawIntlProvider>
-		);
-	} else {
-		return (
-			<IntlProvider messages={messages} locale='en'>
-				<Component {...pageProps} />
-			</IntlProvider>
-		);
+	const [messages, setMessages] = useState<
+		Record<string, string> | Record<string, MessageFormatElement[]> | undefined
+	>();
+
+	const locale = 'en';
+
+	useEffect(() => {
+		loadLocaleData(locale).then((messages) => setMessages(messages));
+	}, [locale]);
+
+	let intl: IntlShape = createIntl(
+		{
+			locale,
+			messages,
+			defaultLocale: locale,
+		},
+		cache
+	);
+
+	if (process.env.NODE_ENV === 'development' && messages !== undefined) {
+		intl = pseudoIntl(generateENXD, messages, locale, cache);
 	}
+
+	return (
+		<RawIntlProvider value={intl}>
+			<Component {...pageProps} />
+		</RawIntlProvider>
+	);
 }
 
 export default MyApp;
