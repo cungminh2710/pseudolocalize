@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import {
 	type IntlCache,
-	IntlProvider,
 	type IntlShape,
 	type MessageFormatElement,
 	RawIntlProvider,
@@ -23,9 +22,9 @@ function loadLocaleData(locale: string) {
 const cache: IntlCache = createIntlCache();
 
 function MyApp({ Component, pageProps }: AppProps) {
-	const [messages, setMessages] = useState<
-		Record<string, string> | Record<string, MessageFormatElement[]> | undefined
-	>();
+	const [messages, setMessages] = useState<Record<string, string> | Record<string, MessageFormatElement[]> | undefined>(
+		{}
+	);
 
 	const locale = 'en';
 
@@ -42,9 +41,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 		cache
 	);
 
-	if (process.env.NODE_ENV === 'development' && messages !== undefined) {
+	if (process.env.NODE_ENV === 'development' && messages != null) {
 		intl = pseudoIntl(generateENXD, messages, locale, cache);
 	}
+
+	console.log(intl, messages);
 
 	return (
 		<RawIntlProvider value={intl}>
