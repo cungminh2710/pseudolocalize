@@ -1,0 +1,9 @@
+# .prettierrc or .prettierrc.yaml
+jsxSingleQuote: true
+tabWidth: 2
+useTabs: true
+singleQuote: true
+printWidth: 120
+semi: true
+importOrderSeparation: true
+importOrderSortSpecifiers: true
