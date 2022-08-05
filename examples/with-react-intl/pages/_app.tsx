@@ -1,7 +1,7 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
 import messages from '../compiled-lang/en.json';
+import '../styles/globals.css';
 import { generateENXD, pseudoIntl } from '@cungminh2710/pseudolocalize';
+import type { AppProps } from 'next/app';
 import { IntlProvider, RawIntlProvider } from 'react-intl';
 
 function MyApp({ Component, pageProps }: AppProps) {
