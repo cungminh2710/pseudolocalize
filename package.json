@@ -13,7 +13,8 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "format": "prettier --config .prettierrc.yaml --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "clean": "bin/clean.sh",
+    "format": "prettier --config .prettierrc.yaml --write .",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
