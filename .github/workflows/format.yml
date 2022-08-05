@@ -14,8 +14,20 @@ jobs:
           # This is important to fetch the changes to the previous commit
           fetch-depth: 0
 
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.2
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
         with:
-          # This part is also where you can pass other options, for example:
-          prettier_options: --write **/*.{js,ts,tsx} --print-width 120 --use-tabs --single-quote --jsx-single-quote
+          node-version: 16
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --silent --frozen-lockfile
+
+      - name: Format
+        run: yarn format
+        continue-on-error: true
+
+      - name: Commit and Push
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply Prettier
