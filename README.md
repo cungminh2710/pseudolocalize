@@ -51,4 +51,5 @@ console.log(prettify(generateENXA(input))); // ṁẏ ńâṁè íś {name}
 
 - With `react-intl`:
 
-See out [with-react-intl](https://github.com/cungminh2710/pseudolocalize/tree/main/examples/with-react-intl) example
+Check out the examples
+- [with-react-intl-next](https://github.com/cungminh2710/pseudolocalize/tree/main/examples/with-react-intl-next)
