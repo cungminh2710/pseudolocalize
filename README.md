@@ -29,8 +29,8 @@ Given the English message `my name is {name}`
 | ------- | --------------------------------- |
 | `en-XA` | `ṁẏ ńâṁè íś {name}`               |
 | `en-XB` | `[!! ṁẏ ńâṁṁṁè íííś !!]Minh`      |
-| `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ` |
-| `en-XD` | `မြ······mẏ nâmè ís Minh······မြ` |
+| `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ`  |
+| `en-XD` | `မြ······mẏ nâmè ís Minh······မြ`  |
 
 - As of 1 June 2022, on NPM, `code` component in this table above will fail for this tall burmese character `မြ`
 
