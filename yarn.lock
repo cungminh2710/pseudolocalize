@@ -885,7 +885,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@trivago/prettier-plugin-sort-imports@^3.3.0":
+"@trivago/prettier-plugin-sort-imports@3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-3.3.0.tgz#ee4e9ec1d8e3076b95fcb94311f42f7a61eecd37"
   integrity sha512-1y44bVZuIN0RsS3oIiGd5k8Vm3IZXYZnp4VsP2Z/S5L9WAOw43HE2clso66M2S/dDeJ+8sKPqnHsEfh39Vjs3w==
