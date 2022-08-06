@@ -45,8 +45,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 		intl = pseudoIntl(generateENXD, messages, locale, cache);
 	}
 
-	console.log(intl, messages);
-
 	return (
 		<RawIntlProvider value={intl}>
 			<Component {...pageProps} />
