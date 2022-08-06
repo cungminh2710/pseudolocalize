@@ -29,8 +29,8 @@ Given the English message `my name is {name}`
 | ------- | --------------------------------- |
 | `en-XA` | `ṁẏ ńâṁè íś {name}`               |
 | `en-XB` | `[!! ṁẏ ńâṁṁṁè íííś !!]Minh`      |
-| `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ`  |
-| `en-XD` | `မြ······mẏ nâmè ís Minh······မြ`  |
+| `en-XC` | `မြ······ṁẏ ńâṁè íś Minh······မြ` |
+| `en-XD` | `မြ······mẏ nâmè ís Minh······မြ` |
 
 - As of 1 June 2022, on NPM, `code` component in this table above will fail for this tall burmese character `မြ`
 
@@ -51,4 +51,5 @@ console.log(prettify(generateENXA(input))); // ṁẏ ńâṁè íś {name}
 - With `react-intl`:
 
 Check out the examples
+
 - [with-react-intl-next](https://github.com/cungminh2710/pseudolocalize/tree/main/examples/with-react-intl-next)
