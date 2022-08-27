@@ -43,7 +43,7 @@
   "dependencies": {
     "@formatjs/icu-messageformat-parser": "2.1.6",
     "intl-messageformat": "10.1.4",
-    "react-intl": "6.0.8"
+    "react-intl": "6.1.0"
   },
   "peerDependencies": {
     "react": "^16.6.0 || 17 || 18",
