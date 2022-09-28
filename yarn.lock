@@ -1685,6 +1685,16 @@ intl-messageformat@10.1.4:
     "@formatjs/icu-messageformat-parser" "2.1.7"
     tslib "2.4.0"
 
+intl-messageformat@10.1.5:
+  version "10.1.5"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-10.1.5.tgz#ec053e0367ee5e4d40a9448ddbb9fff143266a9d"
+  integrity sha512-bDQz81oQ6TkQp1pSnlBK36ahGL5/tLb0+3hSiG/1/SnVbz5NWPQTqaPx2cT7nmGujDrPn9pQ0ik8RWE8v1lzEw==
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.12.0"
+    "@formatjs/fast-memoize" "1.2.6"
+    "@formatjs/icu-messageformat-parser" "2.1.8"
+    tslib "2.4.0"
+
 is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
