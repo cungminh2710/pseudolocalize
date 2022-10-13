@@ -29,7 +29,7 @@
     "test": "jest --config jestconfig.json"
   },
   "devDependencies": {
-    "@formatjs/icu-messageformat-parser": "2.1.8",
+    "@formatjs/icu-messageformat-parser": "2.1.9",
     "@trivago/prettier-plugin-sort-imports": "3.3.0",
     "@types/jest": "29.1.2",
     "intl-messageformat": "10.2.0",
