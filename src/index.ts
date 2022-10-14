@@ -9,8 +9,8 @@ import {
 	parse,
 } from '@formatjs/icu-messageformat-parser';
 import { printAST } from '@formatjs/icu-messageformat-parser/printer';
-import IntlMessageFormat from 'intl-messageformat';
-import { type IntlCache, createIntl, createIntlCache } from 'react-intl';
+import IntlMessageFormat, { type FormatXMLElementFn, type Options, type PrimitiveType } from 'intl-messageformat';
+import { type IntlCache, type MessageDescriptor, createIntl, createIntlCache } from 'react-intl';
 
 export type PseudoLocale = 'en-XA' | 'en-XB';
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[];
@@ -184,7 +184,11 @@ export const pseudoIntl = (
 		cache
 	);
 
-	intl.formatMessage = (descriptor, values, opts) => {
+	intl.formatMessage = (
+		descriptor: MessageDescriptor,
+		values?: Record<string, PrimitiveType | FormatXMLElementFn<string, string>>,
+		opts?: Options
+	) => {
 		if (!descriptor.defaultMessage) return '';
 		const message = new IntlMessageFormat(pseudoFunc(descriptor.defaultMessage), locale, undefined, opts)
 			// @ts-ignore
