@@ -816,10 +816,10 @@
     "@swc/core-win32-ia32-msvc" "1.3.20"
     "@swc/core-win32-x64-msvc" "1.3.20"
 
-"@trivago/prettier-plugin-sort-imports@3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-3.3.1.tgz#9210335f3883edefdc9f28f4d5b624871771fc34"
-  integrity sha512-ITGspeOlFnK1dwJVjqOguGW3Ja8hakxOPFudhpP0YfsDHT0yM0u4TU+62Vl83hCatnhB4+fYhlSZyiifUv4xSg==
+"@trivago/prettier-plugin-sort-imports@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-4.0.0.tgz#e0936d87fb8d65865c857e6a6dba644103db1b30"
+  integrity sha512-Tyuk5ZY4a0e2MNFLdluQO9F6d1awFQYXVVujEPFfvKPPXz8DADNHzz73NMhwCSXGSuGGZcA/rKOyZBrxVNMxaA==
   dependencies:
     "@babel/core" "7.17.8"
     "@babel/generator" "7.17.7"
