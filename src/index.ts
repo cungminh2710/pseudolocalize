@@ -13,9 +13,10 @@ import { type IntlCache, type MessageDescriptor, createIntl, createIntlCache, In
 
 export type PseudoLocale = 'en-XA' | 'en-XB'
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[]
-type _Message = FormatjsIntl.Message
-export type MessageIds = _Message extends { ids: string }
-  ? _Message['ids']
+export type MessageIds = FormatjsIntl.Message extends { ids: infer T }
+  ? T extends string
+    ? T
+    : string
   : string
 
 const ASCII = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
