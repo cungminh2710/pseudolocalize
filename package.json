@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@formatjs/icu-messageformat-parser": "2.1.14",
-    "@types/jest": "29.2.5",
+    "@types/jest": "29.2.6",
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "eslint": "8.32.0",
     "eslint-config-standard-with-typescript": "30.0.0",
