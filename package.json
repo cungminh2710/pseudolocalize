@@ -1,6 +1,6 @@
 {
   "name": "@cungminh2710/pseudolocalize",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "description": "Several implementation of pseudolocalizing ICU strings",
   "sideEffects": false,
   "main": "dist/index.js",
@@ -48,11 +48,11 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@formatjs/icu-messageformat-parser": "^2.1.7",
-    "intl-messageformat": "^10.1.4",
+    "@formatjs/icu-messageformat-parser": "^2.3.0",
+    "intl-messageformat": "^10.3.1",
     "react": "^16.6.0 || 17 || 18",
-    "react-intl": "^6.1.1",
-    "typescript": "^4.5 || ^5.0.0"
+    "react-intl": "^6.3.0",
+    "typescript": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "typescript": {
