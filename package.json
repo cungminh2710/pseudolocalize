@@ -43,7 +43,7 @@
     "react": "18.2.0",
     "react-intl": "6.3.0",
     "ts-jest": "29.0.5",
-    "tsup": "6.6.3",
+    "tsup": "6.7.0",
     "typescript": "5.0.2"
   },
   "dependencies": {},
