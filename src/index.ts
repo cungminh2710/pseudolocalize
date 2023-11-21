@@ -1,15 +1,16 @@
 import {
-  type LiteralElement,
-  type MessageFormatElement,
   isLiteralElement,
   isPluralElement,
   isSelectElement,
   isTagElement,
+  type LiteralElement,
+  type MessageFormatElement,
   parse,
   TYPE
 } from '@formatjs/icu-messageformat-parser'
 import IntlMessageFormat, { type FormatXMLElementFn, type Options, type PrimitiveType } from 'intl-messageformat'
-import { type IntlCache, type IntlShape, type MessageDescriptor, createIntl, createIntlCache } from 'react-intl'
+import type { IntlCache, IntlShape, MessageDescriptor } from 'react-intl'
+import { createIntl, createIntlCache } from 'react-intl'
 
 export type PseudoLocale = 'en-XA' | 'en-XB'
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[]
