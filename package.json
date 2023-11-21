@@ -1,6 +1,6 @@
 {
   "name": "@cungminh2710/pseudolocalize",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Several implementation of pseudolocalizing ICU strings",
   "sideEffects": false,
   "main": "dist/index.js",
