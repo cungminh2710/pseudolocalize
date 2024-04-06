@@ -3671,10 +3671,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-intl@6.6.4:
-  version "6.6.4"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.6.4.tgz#4322942dbaf4f6edd3a227dc5e20d768ef071541"
-  integrity sha512-bD+7hVTX3zBFI3z/ffIVZrNkCVK0/sQguQ/DqW5uZ6JFWsuiwOieVcLnmtFiUgMQZLdmwNl2Ur5c10RaO7NWBQ==
+react-intl@6.6.5:
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.6.5.tgz#3dee5c4a9f866aebc8384a540a6d132a3fc694eb"
+  integrity sha512-OErDPbGqus0QKVj77MGCC9Plbnys3CDQrq6Lw41c60pmeTdn41AhoS1SIzXG6SUlyF7qNN2AVqfrrIvHUgSyLQ==
   dependencies:
     "@formatjs/ecma402-abstract" "1.18.2"
     "@formatjs/icu-messageformat-parser" "2.7.6"
