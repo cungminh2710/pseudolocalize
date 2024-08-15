@@ -8,9 +8,9 @@ import {
   parse,
   TYPE
 } from '@formatjs/icu-messageformat-parser'
+import type { IntlCache, IntlShape, MessageDescriptor } from '@formatjs/intl'
+import { createIntl, createIntlCache } from '@formatjs/intl'
 import IntlMessageFormat, { type FormatXMLElementFn, type Options, type PrimitiveType } from 'intl-messageformat'
-import type { IntlCache, IntlShape, MessageDescriptor } from 'react-intl'
-import { createIntl, createIntlCache } from 'react-intl'
 
 export type PseudoLocale = 'en-XA' | 'en-XB'
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[]
