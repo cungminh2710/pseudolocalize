@@ -32,7 +32,7 @@
     "@formatjs/icu-messageformat-parser": "2.7.8",
     "@formatjs/intl": "2.10.4",
     "@types/jest": "29.5.12",
-    "@typescript-eslint/eslint-plugin": "7.8.0",
+    "@typescript-eslint/eslint-plugin": "7.18.0",
     "eslint": "8.57.0",
     "eslint-config-standard-with-typescript": "43.0.1",
     "eslint-plugin-import": "2.31.0",
