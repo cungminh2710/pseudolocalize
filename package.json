@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@formatjs/icu-messageformat-parser": "2.11.2",
-    "@formatjs/intl": "2.10.15",
+    "@formatjs/intl": "3.1.6",
     "@types/jest": "29.5.14",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "eslint": "8.57.1",
@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@formatjs/icu-messageformat-parser": "^2.7.8",
-    "@formatjs/intl": "^2.10.4",
+    "@formatjs/intl": "^2.10.4 || ^3.0.0",
     "intl-messageformat": "^10.5.14",
     "typescript": "^5.5.4"
   },
