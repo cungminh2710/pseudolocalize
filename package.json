@@ -29,8 +29,8 @@
     "test": "jest --config jestconfig.json"
   },
   "devDependencies": {
-    "@formatjs/icu-messageformat-parser": "2.7.8",
-    "@formatjs/intl": "2.10.4",
+    "@formatjs/icu-messageformat-parser": "2.11.2",
+    "@formatjs/intl": "2.10.15",
     "@types/jest": "29.5.14",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "eslint": "8.57.1",
@@ -39,7 +39,7 @@
     "eslint-plugin-n": "17.17.0",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-simple-import-sort": "12.1.1",
-    "intl-messageformat": "10.5.14",
+    "intl-messageformat": "10.7.16",
     "jest": "29.7.0",
     "ts-jest": "29.1.2",
     "tsup": "8.2.4",
