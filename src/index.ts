@@ -12,7 +12,7 @@ import type { IntlCache, IntlShape, MessageDescriptor } from '@formatjs/intl'
 import { createIntl, createIntlCache } from '@formatjs/intl'
 import IntlMessageFormat, { type FormatXMLElementFn, type Options, type PrimitiveType } from 'intl-messageformat'
 
-export type PseudoLocale = 'en-XA' | 'en-XB'
+export type PseudoLocale = 'en-XA' | 'en-XB' | 'en-XC' | 'en-XD'
 export type PseudoFunc = (msg: string | MessageFormatElement[]) => MessageFormatElement[]
 export type MessageIds = FormatjsIntl.Message extends { ids: infer T }
   ? T extends string
