@@ -19,6 +19,16 @@ export type MessageIds = FormatjsIntl.Message extends { ids: infer T } ? (T exte
 const ASCII = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const ACCENTED_ASCII = 'âḃćḋèḟĝḫíĵǩĺṁńŏṗɋŕśṭůṿẘẋẏẓḀḂḈḊḔḞḠḢḬĴḴĻḾŊÕṔɊŔṠṮŨṼẄẌŸƵ';
 
+// O(1) character lookup map
+const CHAR_MAP = new Map<string, string>(ASCII.split('').map((c, i) => [c, ACCENTED_ASCII[i]]));
+
+/**
+ * Deep clone an AST to avoid mutating the original
+ */
+function cloneAst(ast: MessageFormatElement[]): MessageFormatElement[] {
+	return JSON.parse(JSON.stringify(ast));
+}
+
 /**
  *
  * @param direction 'left' or 'right'
@@ -49,118 +59,114 @@ function expandRatio(length: number): number {
 	return 1.3;
 }
 
-export function generateENXA(msg: string | MessageFormatElement[]): MessageFormatElement[] {
-	const ast = typeof msg === 'string' ? parse(msg) : msg;
+function processENXA(ast: MessageFormatElement[]): void {
 	ast.forEach((el) => {
 		if (isLiteralElement(el)) {
 			el.value = el.value
 				.split('')
-				.map((c) => {
-					const i = ASCII.indexOf(c);
-					if (i < 0) {
-						return c;
-					}
-					return ACCENTED_ASCII[i];
-				})
+				.map((c) => CHAR_MAP.get(c) ?? c)
 				.join('');
 		} else if (isPluralElement(el) || isSelectElement(el)) {
 			for (const opt of Object.values(el.options)) {
-				generateENXA(opt.value);
+				processENXA(opt.value);
 			}
 		} else if (isTagElement(el)) {
-			generateENXA(el.children);
+			processENXA(el.children);
 		}
 	});
+}
+
+export function generateENXA(msg: string | MessageFormatElement[]): MessageFormatElement[] {
+	const ast = typeof msg === 'string' ? parse(msg) : cloneAst(msg);
+	processENXA(ast);
 	return ast;
 }
 
-export function generateENXB(msg: string | MessageFormatElement[]): MessageFormatElement[] {
-	const ast = typeof msg === 'string' ? parse(msg) : msg;
+function processENXB(ast: MessageFormatElement[]): void {
 	ast.forEach((el) => {
 		if (isLiteralElement(el)) {
 			const pseudoString = el.value
 				.split('')
 				.map((c, index) => {
-					const i = ASCII.indexOf(c);
-					const canPad = (index + 1) % 3 === 0;
-
-					if (i < 0) {
+					const accented = CHAR_MAP.get(c);
+					if (accented == null) {
 						return c;
 					}
-
-					return canPad ? ACCENTED_ASCII[i].repeat(3) : ACCENTED_ASCII[i];
+					const shouldRepeat = (index + 1) % 3 === 0;
+					return shouldRepeat ? accented.repeat(3) : accented;
 				})
 				.join('');
 
 			el.value = `[!! ${pseudoString} !!]`;
 		} else if (isPluralElement(el) || isSelectElement(el)) {
 			for (const opt of Object.values(el.options)) {
-				generateENXB(opt.value);
+				processENXB(opt.value);
 			}
 		} else if (isTagElement(el)) {
-			generateENXB(el.children);
+			processENXB(el.children);
 		}
 	});
+}
+
+export function generateENXB(msg: string | MessageFormatElement[]): MessageFormatElement[] {
+	const ast = typeof msg === 'string' ? parse(msg) : cloneAst(msg);
+	processENXB(ast);
 	return ast;
 }
 
-export function generateENXC(msg: string | MessageFormatElement[]): MessageFormatElement[] {
-	const ast = typeof msg === 'string' ? parse(msg) : msg;
+function processENXC(ast: MessageFormatElement[]): number {
 	let inputLength = 0;
-
 	ast.forEach((el) => {
 		if (isLiteralElement(el)) {
-			const pseudoString = el.value.split('').map((c) => {
-				const i = ASCII.indexOf(c);
-				if (i < 0) {
-					return c;
-				}
-				return ACCENTED_ASCII[i];
-			});
-
-			pseudoString.forEach((_) => inputLength++);
-
-			el.value = `${pseudoString.join('')}`;
+			const pseudoString = el.value.split('').map((c) => CHAR_MAP.get(c) ?? c);
+			inputLength += pseudoString.length;
+			el.value = pseudoString.join('');
 		} else if (isPluralElement(el) || isSelectElement(el)) {
 			for (const opt of Object.values(el.options)) {
-				generateENXC(opt.value);
+				inputLength += processENXC(opt.value);
 			}
 		} else if (isTagElement(el)) {
-			generateENXC(el.children);
+			inputLength += processENXC(el.children);
 		}
 	});
+	return inputLength;
+}
 
+export function generateENXC(msg: string | MessageFormatElement[]): MessageFormatElement[] {
+	const ast = typeof msg === 'string' ? parse(msg) : cloneAst(msg);
+	const inputLength = processENXC(ast);
 	const additionalLength = Math.max(1, inputLength * expandRatio(inputLength));
 
 	return [padding('left', additionalLength / 2), ...ast, padding('right', additionalLength / 2)];
 }
 
-export function generateENXD(msg: string | MessageFormatElement[]): MessageFormatElement[] {
-	const ast = typeof msg === 'string' ? parse(msg) : msg;
+function processENXD(ast: MessageFormatElement[]): number {
 	let inputLength = 0;
-
 	ast.forEach((el) => {
 		if (isLiteralElement(el)) {
 			const pseudoString = el.value.split('').map((c) => {
-				const i = ASCII.indexOf(c);
-				if (i < 0 || !/[aeiouy]/.test(c)) {
+				// Only accent lowercase vowels
+				if (!/[aeiouy]/.test(c)) {
 					return c;
 				}
-				return ACCENTED_ASCII[i];
+				return CHAR_MAP.get(c) ?? c;
 			});
-
-			pseudoString.forEach((_) => inputLength++);
-
-			el.value = `${pseudoString.join('')}`;
+			inputLength += pseudoString.length;
+			el.value = pseudoString.join('');
 		} else if (isPluralElement(el) || isSelectElement(el)) {
 			for (const opt of Object.values(el.options)) {
-				generateENXD(opt.value);
+				inputLength += processENXD(opt.value);
 			}
 		} else if (isTagElement(el)) {
-			generateENXD(el.children);
+			inputLength += processENXD(el.children);
 		}
 	});
+	return inputLength;
+}
 
+export function generateENXD(msg: string | MessageFormatElement[]): MessageFormatElement[] {
+	const ast = typeof msg === 'string' ? parse(msg) : cloneAst(msg);
+	const inputLength = processENXD(ast);
 	const additionalLength = Math.max(1, inputLength * expandRatio(inputLength));
 
 	return [padding('left', additionalLength / 2), ...ast, padding('right', additionalLength / 2)];
