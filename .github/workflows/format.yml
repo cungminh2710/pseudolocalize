@@ -18,7 +18,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Install Dependencies
-        run: bun install --frozen-lockfile
+        run: bun install --immutable --ignore-scripts
 
       - name: Format
         run: bun run format
