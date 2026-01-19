@@ -1,6 +1,6 @@
 {
 	"name": "@cungminh2710/pseudolocalize",
-	"version": "3.0.0",
+	"version": "4.0.1",
 	"private": false,
 	"description": "Several implementation of pseudolocalizing ICU strings",
 	"keywords": [
