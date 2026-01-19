@@ -46,7 +46,7 @@
 		"intl-messageformat": "10.7.16",
 		"oxfmt": "0.26.0",
 		"oxlint": "1.41.0",
-		"tsup": "8.4.0",
+		"tsup": "8.5.1",
 		"typescript": "5.9.3"
 	},
 	"peerDependencies": {
