@@ -3,31 +3,28 @@ name: Code Format
 on: workflow_dispatch
 
 jobs:
-  prettier:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v6
         with:
           # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
           # This is important to fetch the changes to the previous commit
           fetch-depth: 0
 
-      - name: Use Node.js 16
-        uses: actions/setup-node@v4
-        with:
-          node-version: 16
-          cache: 'yarn'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install Dependencies
-        run: yarn install --silent --frozen-lockfile
+        run: bun install --immutable --ignore-scripts
 
       - name: Format
-        run: yarn format
+        run: bun run format
         continue-on-error: true
 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Apply Prettier
+          commit_message: Apply formatting

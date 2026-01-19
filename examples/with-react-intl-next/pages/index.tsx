@@ -1,8 +1,9 @@
-import styles from '../styles/Home.module.css';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
 	const { formatMessage } = useIntl();
@@ -12,19 +13,34 @@ const Home: NextPage = () => {
 		<div className={styles.container}>
 			<Head>
 				<title>{title}</title>
-				<meta name='description' content={description} />
-				<link rel='icon' href='/favicon.ico' />
+				<meta
+					name='description'
+					content={description}
+				/>
+				<link
+					rel='icon'
+					href='/favicon.ico'
+				/>
 			</Head>
 
 			<main className={styles.main}>
 				<h1 className={styles.title}>
-					<FormattedMessage defaultMessage='Welcome!' id='Q+U0TW' />
+					<FormattedMessage
+						defaultMessage='Welcome!'
+						id='Q+U0TW'
+					/>
 				</h1>
 
 				<div className={styles.grid}>
-					<a href='https://nextjs.org/docs' className={styles.card}>
+					<a
+						href='https://nextjs.org/docs'
+						className={styles.card}
+					>
 						<h2>
-							<FormattedMessage defaultMessage='Documentation' id='isGKnz' />
+							<FormattedMessage
+								defaultMessage='Documentation'
+								id='isGKnz'
+							/>
 						</h2>
 						<p>
 							<FormattedMessage
@@ -34,9 +50,15 @@ const Home: NextPage = () => {
 						</p>
 					</a>
 
-					<a href='https://nextjs.org/learn' className={styles.card}>
+					<a
+						href='https://nextjs.org/learn'
+						className={styles.card}
+					>
 						<h2>
-							<FormattedMessage defaultMessage='Learn' id='IbrSk1' />
+							<FormattedMessage
+								defaultMessage='Learn'
+								id='IbrSk1'
+							/>
 						</h2>
 						<p>
 							<FormattedMessage
@@ -46,9 +68,15 @@ const Home: NextPage = () => {
 						</p>
 					</a>
 
-					<a href='https://github.com/vercel/next.js/tree/canary/examples' className={styles.card}>
+					<a
+						href='https://github.com/vercel/next.js/tree/canary/examples'
+						className={styles.card}
+					>
 						<h2>
-							<FormattedMessage defaultMessage='Examples' id='3GLH+d' />
+							<FormattedMessage
+								defaultMessage='Examples'
+								id='3GLH+d'
+							/>
 						</h2>
 						<p>
 							<FormattedMessage
@@ -63,7 +91,10 @@ const Home: NextPage = () => {
 						className={styles.card}
 					>
 						<h2>
-							<FormattedMessage defaultMessage='Deploy' id='556JQK' />
+							<FormattedMessage
+								defaultMessage='Deploy'
+								id='556JQK'
+							/>
 						</h2>
 						<p>
 							<FormattedMessage
@@ -81,9 +112,17 @@ const Home: NextPage = () => {
 					target='_blank'
 					rel='noopener noreferrer'
 				>
-					<FormattedMessage defaultMessage='Powered by ' id='Sl0m2s' />
+					<FormattedMessage
+						defaultMessage='Powered by '
+						id='Sl0m2s'
+					/>
 					<span className={styles.logo}>
-						<Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
+						<Image
+							src='/vercel.svg'
+							alt='Vercel Logo'
+							width={72}
+							height={16}
+						/>
 					</span>
 				</a>
 			</footer>

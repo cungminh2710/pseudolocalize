@@ -1,35 +1,35 @@
 {
-  "1Mb24G": {
-    "defaultMessage": "Discover and deploy boilerplate example Next.js projects."
-  },
-  "3GLH+d": {
-    "defaultMessage": "Examples"
-  },
-  "556JQK": {
-    "defaultMessage": "Deploy"
-  },
-  "9x6Yuc": {
-    "defaultMessage": "Create Next App"
-  },
-  "IbrSk1": {
-    "defaultMessage": "Learn"
-  },
-  "J2uzO1": {
-    "defaultMessage": "Find in-depth information about Next.js features and API."
-  },
-  "Mx6xjj": {
-    "defaultMessage": "Instantly deploy your Next.js site to a public URL with Vercel."
-  },
-  "Q+U0TW": {
-    "defaultMessage": "Welcome!"
-  },
-  "Sl0m2s": {
-    "defaultMessage": "Powered by"
-  },
-  "isGKnz": {
-    "defaultMessage": "Documentation"
-  },
-  "jdABpR": {
-    "defaultMessage": "Learn about Next.js in an interactive course with quizzes!"
-  }
+	"1Mb24G": {
+		"defaultMessage": "Discover and deploy boilerplate example Next.js projects."
+	},
+	"3GLH+d": {
+		"defaultMessage": "Examples"
+	},
+	"556JQK": {
+		"defaultMessage": "Deploy"
+	},
+	"9x6Yuc": {
+		"defaultMessage": "Create Next App"
+	},
+	"IbrSk1": {
+		"defaultMessage": "Learn"
+	},
+	"J2uzO1": {
+		"defaultMessage": "Find in-depth information about Next.js features and API."
+	},
+	"Mx6xjj": {
+		"defaultMessage": "Instantly deploy your Next.js site to a public URL with Vercel."
+	},
+	"Q+U0TW": {
+		"defaultMessage": "Welcome!"
+	},
+	"Sl0m2s": {
+		"defaultMessage": "Powered by"
+	},
+	"isGKnz": {
+		"defaultMessage": "Documentation"
+	},
+	"jdABpR": {
+		"defaultMessage": "Learn about Next.js in an interactive course with quizzes!"
+	}
 }

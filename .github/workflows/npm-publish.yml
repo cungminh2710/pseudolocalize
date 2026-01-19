@@ -11,25 +11,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --immutable --ignore-scripts
+      - run: bun test
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'yarn'
+          node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --immutable --ignore-scripts
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

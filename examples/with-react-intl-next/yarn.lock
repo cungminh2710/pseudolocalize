@@ -72,7 +72,7 @@
     "@formatjs/ecma402-abstract" "1.11.10"
     tslib "2.4.0"
 
-"@formatjs/intl-displaynames@6.1.1":
+"@formatjs/intl-displaynames@v6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-displaynames/-/intl-displaynames-6.1.1.tgz#a1342e8915bec5828a2145116ffc47e4501ff8d2"
   integrity sha512-/fu6f+yMaGGaukf+BD5PHrI3HYhmBcpSnRWpgfuvTsRL6HUKWRHSdullDkU+1TaW4kg6EfEpmo4jDwVUpo/b3Q==
@@ -1614,7 +1614,7 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-intl@6.0.8:
+react-intl@v6.0.8:
   version "6.0.8"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.0.8.tgz#b588463b06d8949a6aa0506515c1a59ac2ed82a3"
   integrity sha512-u7n8C6T0Z/MP2pnC/F1LrjUHLwCNgJmRKBAnr/qBhUppPp0Pq6bGuaXrtK/y4SuaKoY1A0nL6QrkFaqPuER3MQ==
