@@ -1,68 +1,68 @@
 {
-  "1Mb24G": [
-    {
-      "type": 0,
-      "value": "Discover and deploy boilerplate example Next.js projects."
-    }
-  ],
-  "3GLH+d": [
-    {
-      "type": 0,
-      "value": "Examples"
-    }
-  ],
-  "556JQK": [
-    {
-      "type": 0,
-      "value": "Deploy"
-    }
-  ],
-  "9x6Yuc": [
-    {
-      "type": 0,
-      "value": "Create Next App"
-    }
-  ],
-  "IbrSk1": [
-    {
-      "type": 0,
-      "value": "Learn"
-    }
-  ],
-  "J2uzO1": [
-    {
-      "type": 0,
-      "value": "Find in-depth information about Next.js features and API."
-    }
-  ],
-  "Mx6xjj": [
-    {
-      "type": 0,
-      "value": "Instantly deploy your Next.js site to a public URL with Vercel."
-    }
-  ],
-  "Q+U0TW": [
-    {
-      "type": 0,
-      "value": "Welcome!"
-    }
-  ],
-  "Sl0m2s": [
-    {
-      "type": 0,
-      "value": "Powered by"
-    }
-  ],
-  "isGKnz": [
-    {
-      "type": 0,
-      "value": "Documentation"
-    }
-  ],
-  "jdABpR": [
-    {
-      "type": 0,
-      "value": "Learn about Next.js in an interactive course with quizzes!"
-    }
-  ]
+	"1Mb24G": [
+		{
+			"type": 0,
+			"value": "Discover and deploy boilerplate example Next.js projects."
+		}
+	],
+	"3GLH+d": [
+		{
+			"type": 0,
+			"value": "Examples"
+		}
+	],
+	"556JQK": [
+		{
+			"type": 0,
+			"value": "Deploy"
+		}
+	],
+	"9x6Yuc": [
+		{
+			"type": 0,
+			"value": "Create Next App"
+		}
+	],
+	"IbrSk1": [
+		{
+			"type": 0,
+			"value": "Learn"
+		}
+	],
+	"J2uzO1": [
+		{
+			"type": 0,
+			"value": "Find in-depth information about Next.js features and API."
+		}
+	],
+	"Mx6xjj": [
+		{
+			"type": 0,
+			"value": "Instantly deploy your Next.js site to a public URL with Vercel."
+		}
+	],
+	"Q+U0TW": [
+		{
+			"type": 0,
+			"value": "Welcome!"
+		}
+	],
+	"Sl0m2s": [
+		{
+			"type": 0,
+			"value": "Powered by"
+		}
+	],
+	"isGKnz": [
+		{
+			"type": 0,
+			"value": "Documentation"
+		}
+	],
+	"jdABpR": [
+		{
+			"type": 0,
+			"value": "Learn about Next.js in an interactive course with quizzes!"
+		}
+	]
 }

@@ -1,5 +1,8 @@
-import { generateENXA, generateENXB, generateENXC, generateENXD } from '../index';
+import { expect, test } from 'bun:test';
+
 import IntlMessageFormat from 'intl-messageformat';
+
+import { generateENXA, generateENXB, generateENXC, generateENXD } from '../index';
 
 const input = 'my name is {name}';
 const name = 'Minh';

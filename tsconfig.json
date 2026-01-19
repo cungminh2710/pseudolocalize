@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-    "baseUrl": "./src",
+		"baseUrl": "./src",
 		"target": "ES6",
 		"module": "commonjs",
 		"lib": ["ESNext"],
