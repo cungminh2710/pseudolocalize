@@ -42,7 +42,7 @@
 	"devDependencies": {
 		"@formatjs/icu-messageformat-parser": "3.5.3",
 		"@formatjs/intl": "4.1.4",
-		"@types/bun": "1.3.10",
+		"@types/bun": "1.3.11",
 		"intl-messageformat": "11.2.0",
 		"oxfmt": "0.42.0",
 		"oxlint": "1.57.0",
