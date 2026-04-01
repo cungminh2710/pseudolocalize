@@ -1,63 +1,77 @@
 {
-	"name": "@cungminh2710/pseudolocalize",
+	"name": "@hyperlocalise/pseudolocalize",
 	"version": "4.0.1",
 	"private": false,
 	"description": "Several implementation of pseudolocalizing ICU strings",
 	"keywords": [
+		"hyperlocalise",
 		"i18n",
 		"icu",
 		"l10n",
 		"pseudolocalize"
 	],
-	"homepage": "https://github.com/cungminh2710/pseudolocalize#readme",
+	"homepage": "https://github.com/hyperlocalise/pseudolocalize#readme",
 	"bugs": {
-		"url": "https://github.com/cungminh2710/pseudolocalize/issues"
+		"url": "https://github.com/hyperlocalise/pseudolocalize/issues"
 	},
 	"license": "MIT",
 	"author": "Minh Cung",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/cungminh2710/pseudolocalize.git"
+		"url": "git+https://github.com/hyperlocalise/pseudolocalize.git"
 	},
 	"files": [
 		"dist/**"
 	],
+	"type": "module",
 	"sideEffects": false,
-	"main": "dist/index.js",
+	"main": "dist/index.cjs",
 	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
+	"types": "dist/index.d.mts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
 	"scripts": {
-		"build": "tsup src/index.ts --format esm,cjs --dts --treeshake --minify",
+		"build": "vp pack",
+		"check": "vp check",
 		"clean": "bin/clean.sh",
-		"format": "oxfmt",
-		"format:ci": "oxfmt --check",
-		"lint": "oxlint --deny-warnings",
+		"format": "vp fmt",
+		"format:ci": "vp fmt --check",
+		"lint": "vp lint --deny-warnings",
 		"postversion": "git push && git push --tags",
-		"prepare": "npm run build",
-		"prepublishOnly": "npm test && npm run lint",
-		"preversion": "npm run lint",
-		"test": "bun test",
-		"version": "npm run format && git add -A src"
+		"prepare": "vp config && vp pack",
+		"prepublishOnly": "vp test && vp check && vp pack",
+		"preversion": "vp check",
+		"test": "vp test",
+		"version": "vp fmt && git add -A src"
 	},
 	"devDependencies": {
 		"@formatjs/icu-messageformat-parser": "3.5.3",
 		"@formatjs/intl": "4.1.5",
 		"@types/bun": "1.3.11",
 		"intl-messageformat": "11.2.0",
-		"oxfmt": "0.42.0",
-		"oxlint": "1.57.0",
-		"tsup": "8.5.1",
-		"typescript": "5.9.3"
+		"typescript": "6.0.2",
+		"vite-plus": "latest"
 	},
 	"peerDependencies": {
 		"@formatjs/icu-messageformat-parser": "^2.7.8 || ^3.0.0",
 		"@formatjs/intl": "^2.10.4 || ^3.0.0 || ^4.0.0",
 		"intl-messageformat": "^10.5.14 || ^11.0.0",
-		"typescript": "^5.5.4"
+		"typescript": "^5.5.4 || ^6.0.0"
 	},
 	"peerDependenciesMeta": {
 		"typescript": {
 			"optional": true
 		}
-	}
+	},
+	"overrides": {
+		"vite": "npm:@voidzero-dev/vite-plus-core@latest",
+		"vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+	},
+	"packageManager": "bun@1.3.11"
 }

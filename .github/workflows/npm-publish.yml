@@ -12,9 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install --immutable --ignore-scripts
-      - run: bun test
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          cache: true
+      - run: vp install --ignore-scripts
+      - run: vp check
+      - run: vp test
+      - run: vp pack
 
   publish-npm:
     needs: build
@@ -25,8 +29,11 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install --immutable --ignore-scripts
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          cache: true
+      - run: vp install --ignore-scripts
+      - run: vp pack
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
