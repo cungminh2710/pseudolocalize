@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, test } from 'vite-plus/test';
 
 import { parse } from '@formatjs/icu-messageformat-parser';
 import IntlMessageFormat from 'intl-messageformat';
@@ -178,14 +178,14 @@ describe('ICU Tag Elements', () => {
 
 	test('generateENXA handles tag elements', () => {
 		const result = new IntlMessageFormat(generateENXA(tagMessage)).format({
-			b: (chunks) => `<b>${chunks}</b>`,
+			b: (chunks) => `<b>${chunks.join('')}</b>`,
 		});
 		expect(result).toBe('Ḉĺíćǩ <b>ḫèŕè</b> ṭŏ ćŏńṭíńůè');
 	});
 
 	test('generateENXB handles tag elements', () => {
 		const result = new IntlMessageFormat(generateENXB(tagMessage)).format({
-			b: (chunks) => `<b>${chunks}</b>`,
+			b: (chunks) => `<b>${chunks.join('')}</b>`,
 		});
 		expect(result).toBe('[!! Ḉĺíííćǩ  !!]<b>[!! ḫèŕŕŕè !!]</b>[!!  ṭŏŏŏ ćŏŏŏńṭíííńůèèè !!]');
 	});
@@ -193,8 +193,8 @@ describe('ICU Tag Elements', () => {
 	test('generateENXA handles nested tags', () => {
 		const nestedTagMessage = 'Click <b>here <i>now</i></b>';
 		const result = new IntlMessageFormat(generateENXA(nestedTagMessage)).format({
-			b: (chunks) => `<b>${chunks}</b>`,
-			i: (chunks) => `<i>${chunks}</i>`,
+			b: (chunks) => `<b>${chunks.join('')}</b>`,
+			i: (chunks) => `<i>${chunks.join('')}</i>`,
 		});
 		expect(result).toBe('Ḉĺíćǩ <b>ḫèŕè <i>ńŏẘ</i></b>');
 	});
@@ -204,7 +204,10 @@ describe('Complex Nested ICU Messages', () => {
 	test('generateENXA handles plural inside select', () => {
 		const complexMessage =
 			'{gender, select, male {{count, plural, one {He has # dog} other {He has # dogs}}} other {{count, plural, one {They have # dog} other {They have # dogs}}}}';
-		const result = new IntlMessageFormat(generateENXA(complexMessage)).format({ gender: 'male', count: 2 });
+		const result = new IntlMessageFormat(generateENXA(complexMessage)).format({
+			gender: 'male',
+			count: 2,
+		});
 		expect(result).toBe('Ḣè ḫâś 2 ḋŏĝś');
 	});
 
@@ -456,7 +459,10 @@ describe('Edge Cases', () => {
 
 	test('handles adjacent placeholders', () => {
 		const input = '{first}{last}';
-		const result = new IntlMessageFormat(generateENXA(input)).format({ first: 'John', last: 'Doe' });
+		const result = new IntlMessageFormat(generateENXA(input)).format({
+			first: 'John',
+			last: 'Doe',
+		});
 		expect(result).toBe('JohnDoe');
 	});
 });
