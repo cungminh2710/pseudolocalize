@@ -1,5 +1,5 @@
 {
-	"name": "@hyperlocalise/pseudolocalize",
+	"name": "pseudolocalise",
 	"version": "5.0.0",
 	"private": false,
 	"description": "Several implementation of pseudolocalizing ICU strings",
