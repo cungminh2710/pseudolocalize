@@ -51,10 +51,10 @@
 		"version": "vp fmt && git add -A src"
 	},
 	"devDependencies": {
-		"@formatjs/icu-messageformat-parser": "3.5.4",
-		"@formatjs/intl": "4.1.6",
+		"@formatjs/icu-messageformat-parser": "3.5.5",
+		"@formatjs/intl": "4.1.7",
 		"@types/bun": "1.3.13",
-		"intl-messageformat": "11.2.1",
+		"intl-messageformat": "11.2.2",
 		"typescript": "6.0.3",
 		"vite-plus": "latest"
 	},
